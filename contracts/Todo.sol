@@ -10,6 +10,11 @@ import "@openzeppelin/contracts/utils/Strings.sol";
 
  contract TodoList {
     uint public userCount=0;
+    address public owner;
+
+    constructor() {
+        owner = msg.sender;
+    }
 
      struct Todo {
         string id;
@@ -25,6 +30,10 @@ import "@openzeppelin/contracts/utils/Strings.sol";
     }
 
     mapping(address => User) public users;
+
+    function getOwner() public view returns (address) {
+        return owner;
+    }
 
     function createUser(string memory _name) public{
         userCount++;

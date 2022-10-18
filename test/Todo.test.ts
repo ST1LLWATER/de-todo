@@ -12,9 +12,11 @@ describe('Todo', () => {
       await todo.createUser('Alok Sharma');
       await todo.createTodo('Buy Milk');
       await todo.createTodo('Buy Bread');
-      console.log(await todo.getUser());
+      console.log('Added Todos:');
+      console.log((await todo.getUser()).todos);
       await todo.updateTodoStatus('12', true);
-      console.log(await todo.getUser());
+      console.log('Updated Todos:');
+      console.log((await todo.getUser()).todos);
     } catch (error) {
       console.log({
         success: false,
