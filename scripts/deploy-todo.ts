@@ -9,11 +9,16 @@ async function deploy() {
 }
 
 async function success(todo) {
+  await todo.createUser('Alok Sharma');
+  await todo.createTodo('Buy Milk');
+  await todo.createTodo('Buy Bread');
+
   console.log({
     success: true,
     message: 'Todo Contract Deployed Successfully',
     address: todo.address,
     owner: await todo.getOwner(),
+    user: JSON.stringify(await todo.getUser(), null, 2),
   });
 }
 

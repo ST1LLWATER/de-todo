@@ -2,6 +2,7 @@
 
 pragma solidity ^0.8.12;
 import "@openzeppelin/contracts/utils/Strings.sol";
+import "hardhat/console.sol";
 /**
  * @title Storage
  * @dev Store & retrieve value in a variable
@@ -37,6 +38,7 @@ import "@openzeppelin/contracts/utils/Strings.sol";
 
     function createUser(string memory _name) public{
         userCount++;
+        console.log(userCount);
         users[msg.sender].id = userCount;
         users[msg.sender].name = _name;
         users[msg.sender].todoCount = 0;
